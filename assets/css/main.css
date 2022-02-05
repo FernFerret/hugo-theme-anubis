@@ -157,6 +157,8 @@ kbd {
     font-family: monospace;
     font-size: 0.90em;
     line-height: 154%;
+    border-radius: 3px;
+    padding: .2em;
 }
 
 pre code, pre kbd {

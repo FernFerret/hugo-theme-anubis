@@ -13,8 +13,8 @@
     --nav-bg-color: #fafafa;
     --nav-link-color: #696969;
 
-    --pre-color: #333;
-    --pre-bg-color: #f1f1f1;
+    --pre-color: rgb(0, 0, 0);
+    --pre-bg-color: #e4e4e4;
 
     --bq-color: #ccc;
     --hr-color: #ccc;
