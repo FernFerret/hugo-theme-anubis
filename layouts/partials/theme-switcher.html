@@ -4,9 +4,11 @@
 {{ end }}
 
 {{ if not (in (slice "light-without-switcher" "dark-without-switcher" "auto-without-switcher") $style) }}
-    <button class="theme-switcher">
-        {{ i18n "darkTheme" }}
-    </button>
+    <li>
+        <a href="#" id="theme-switcher2" title="Switch Themes">
+        {{ partial "font-awesome.html" (dict "iconName" "adjust" "custom" false) }}
+        </a>
+    </li>
 
     <script>
     const STORAGE_KEY = 'user-color-scheme'
@@ -23,7 +25,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        switchButton = document.querySelector('.theme-switcher')
+        switchButton = document.querySelector('#theme-switcher2')
         currentTheme = detectCurrentScheme()
         if (currentTheme == 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark')
@@ -54,10 +56,11 @@
 
     function changeButtonText()
     {   
-        switchButton.textContent = currentTheme == 'dark' ?  {{ i18n "lightTheme" }} : {{ i18n "darkTheme" }}
+        // switchButton.textContent = currentTheme == 'dark' ?  {{ i18n "lightTheme" }} : {{ i18n "darkTheme" }}
     }
 
     function switchTheme(e) {
+        e.preventDefault()
         if (currentTheme == 'dark') {
             localStorage.setItem(STORAGE_KEY, 'light')
             document.documentElement.setAttribute('data-theme', 'light')
