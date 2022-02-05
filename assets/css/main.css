@@ -664,21 +664,25 @@ ul.language-select > li, ul.footer-menu > li {
     font-size: 0.7em;
     line-height: 1.8;
     color: #fff;
-    background-color: #777;
+    background-color: #222;
     min-width: 25px;
     text-align: center;
     border-radius: 5px;
+    border: 1px solid #444 !important;
 }
 .highlight-copy-btn:hover {
     transition-duration: .1s;
-    background-color: #666;
-    border: 1px solid var(--bq-color) !important;
+    background-color: #333;
+    border: 1px solid #555 !important;
 }
 
 .highlight-copy-btn,
 .highlight-copy-btn svg {
     vertical-align: middle;
     margin: 8px;
+}
+.highlight-copy-btn svg {
+    filter: invert(83%) sepia(0%) saturate(0%) hue-rotate(270deg) brightness(99%) contrast(92%);
 }
 
 /* Media Queries */
