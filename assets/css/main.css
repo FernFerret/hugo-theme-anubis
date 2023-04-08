@@ -54,8 +54,21 @@ section {
 }	
 
 .container {
-    max-width: 42em;
+    /* max-width: 42em; */
+    /* max-width: 52em; */
+    padding-right: 1em;
+    padding-left: 1em;
     margin: 0 auto;
+}
+
+.container.cozy {
+    /* max-width: 42em; */
+    max-width: 52em;
+}
+
+.container.wide {
+    /* max-width: 42em; */
+    max-width: inherit;
 }
 
 main {

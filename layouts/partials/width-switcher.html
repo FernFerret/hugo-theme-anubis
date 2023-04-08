@@ -1,0 +1,59 @@
+<li>
+  <a href="#" id="width-switcher" title="Use wide layout">
+    {{ partial "font-awesome.html" (dict "iconName" "left-right" "custom" false)
+    }}
+  </a>
+</li>
+
+<script>
+  const WIDTH_KEY = "user-width-scheme";
+  const defaultWidthMode = "cozy";
+
+  let currentWidthMode;
+  let widthModeButton;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    widthModeButton = document.querySelector("#width-switcher");
+    currentWidthMode = detectCurrentWidth();
+    setWidthMode(currentWidthMode);
+    widthModeButton.addEventListener("click", switchWidthMode, false);
+  });
+
+  function detectCurrentWidth() {
+    if (localStorage.getItem(WIDTH_KEY)) {
+      return localStorage.getItem(WIDTH_KEY);
+    }
+    if (defaultWidthMode) {
+      return defaultWidthMode;
+    }
+    return "cozy";
+  }
+
+  function switchWidthMode(e) {
+    e.preventDefault();
+    if (currentWidthMode == "cozy") {
+      currentWidthMode = "wide";
+    } else {
+      currentWidthMode = "cozy";
+    }
+    setWidthMode(currentWidthMode)
+    console.log(`Mode set to: ${currentWidthMode}`)
+  }
+
+  function setWidthMode(mode) {
+    localStorage.setItem(WIDTH_KEY, mode);
+    document.documentElement.getElementsByClassName("container")[0].classList.add(mode)
+
+    if (mode == "wide") {
+      document.documentElement.getElementsByClassName("container")[0].classList.remove("cozy")
+    } else {
+      document.documentElement.getElementsByClassName("container")[0].classList.remove("wide")
+    }
+
+    changeWidthButtonText(mode);
+  }
+
+  function changeWidthButtonText(mode) {
+    widthModeButton.title = `Use ${mode == "wide" ? "cozy" : "wide"} layout`;
+  }
+</script>
